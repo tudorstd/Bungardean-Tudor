@@ -6,7 +6,8 @@
 		<style>
 				body{
 					background-color: lightblue;
-					 font-family: "Arial", sans-serif;
+					font-family: "Arial", sans-serif;
+					transition: background-color 0.5s ease;
 				}
 				h2{
 					color: green;
@@ -23,11 +24,21 @@
 				font-size: 18px;
 				letter-spacing: 2px;
 				}		
-				h7 {
+				h8 {
 				font-weight: bold;
 				text-decoration: underline;
 				color: #000080;
 				font-size: 15px;
+				}
+				th, td {
+				border: 1px solid #800080;
+				text-align: left;
+				padding: 8px; /* Modifică această valoare pentru a ajusta grosimea marginilor */
+				}
+				#varsta {
+				cursor: pointer;
+				color: blue;
+				text-decoration: underline;
 				}
 			
 			</style>	
@@ -42,7 +53,7 @@
 			<h4> Email colaborari facultate: Bungardean.Mi.Tudor@student.utcluj.ro </h4>
 			<h5> "Încearcă sa fii un om de valoare și nu neapărat un om de succes".</h5>
 			<h6>Hobby-urile mele sunt: gaming-ul, tehnologia si programarea de jocuri.</h6>
-			<img src="Poza_Profil.jpg" width="300" height="300">
+			
 			
 		<table>
   <tr>
@@ -67,12 +78,48 @@
   </tr>
 </table>
 
-			<h7>Alta viata</h7>
+<script>
+			function oldToNewImage() {
+	var img = document.getElementById("profileimg");
+	img.src = "";
+	img.style.opacity = 1;
+	img.style.filter = "blur(0)";
+}
+function schimbaImagine() {
+      document.getElementById('imagine').src = 'Poza_Profila2.jpg'; // Înlocuiește cu calea către noua imagine
+    }
 
+    function reseteazaImagine() {
+      document.getElementById('imagine').src = 'Poza_Profil.jpg'; // Înlocuiește cu calea către vechea imagine
+    }
+	 function schimbaCuloare() {
+      var body = document.body;
+      var culoareNoua = "#FF0000"; // Înlocuiește cu codul de culoare dorit
+      body.style.backgroundColor = culoareNoua;
+    }
+		function calculVarsta() {
+			var anulNasterii = prompt("Introdu anul nașterii:");
+      
+      var anulCurent = new Date().getFullYear();
+      var varsta = anulCurent - parseInt(anulNasterii);
+      
+      // Actualizează conținutul elementului cu vârsta
+      document.getElementById("varsta").innerText = "Vârsta: " + varsta + " ani";
+	  }
+</script>
+<img id="imagine" src="Poza_Profil.jpg" onmouseover="schimbaImagine()" onmouseout="reseteazaImagine()" alt="Imaginea mea">
+
+
+	
+<div id="varsta" onmouseover="calculVarsta()">Anul nașterii</div>
+
+<button onclick="schimbaCuloare()">Schimbă Culoarea</button>
+
+<h6>Alta viata</h6>
 <p id="demo"> </p>
+<button type="button" onclick='document.getElementById("demo").innerHTML = " Am 19 ani, si sunt student la UTCN, la Facultatea de Eletronica Telecomunicatii si Tehnoligia Informatiei (ETTI), si imi doresc sa ajung un programator bun, si sa imi gasesc un loc de munca in acest domeniu, deoarece sunt pasionat de programare, dar si de tehnologie in general.   "'>Alt continut</button>
 
-<button type="button" onclick='document.getElementById("demo").innerHTML = " 19 "'>Alt continut !</button>
 </body>	
 </head>
 </html>
-		
+			
